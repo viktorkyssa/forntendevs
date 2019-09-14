@@ -8,7 +8,7 @@ import Settings from './components/Settings/Settings'
 import NotFound from './components/NotFound/NotFound'
 import LoginPage from './components/Login/Login'
 import UsersContainer from './components/Users/UsersContainer'
-import {BrowserRouter, Route, Switch, withRouter} from 'react-router-dom'
+import {HashRouter, Route, Switch, withRouter} from 'react-router-dom'
 import './App.css'
 import {connect, Provider} from "react-redux"
 import {initializeApp} from "./redux/app-reducer"
@@ -63,9 +63,10 @@ const AppContainer = compose(
 const SamuraiJSApp = (props) => {
     return (
         <Provider store={store}>
-            <BrowserRouter>
+            {/*basename={process.env.PUBLIC_URL}*/}
+            <HashRouter >
                 <AppContainer />
-            </BrowserRouter>
+            </HashRouter>
         </Provider>
     )
 }
