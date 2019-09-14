@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dd3537ddcf08dcb6eeaf61ac1e18453b",
+    "revision": "b63eb11e02b8d7120aae47082417e4ec",
     "url": "/forntendevs/index.html"
   },
   {
@@ -8,32 +8,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/forntendevs/static/css/3.7893d4f7.chunk.css"
   },
   {
-    "revision": "24cdc5d6cc409b6d64fd",
+    "revision": "07e27bb545e0d860e259",
     "url": "/forntendevs/static/css/4.bb6d6209.chunk.css"
   },
   {
-    "revision": "a17d2d51ccfc266514b6",
+    "revision": "cf0b627a4c743fff5190",
     "url": "/forntendevs/static/css/main.ba7f617d.chunk.css"
   },
   {
-    "revision": "0cf589ce28ef786e1ea5",
-    "url": "/forntendevs/static/js/2.81feda70.chunk.js"
+    "revision": "a98932c11e1917389a80",
+    "url": "/forntendevs/static/js/2.ead3bf83.chunk.js"
   },
   {
     "revision": "c85045febd22fbbd1bf3",
     "url": "/forntendevs/static/js/3.b60b8676.chunk.js"
   },
   {
-    "revision": "24cdc5d6cc409b6d64fd",
-    "url": "/forntendevs/static/js/4.15e7b266.chunk.js"
+    "revision": "07e27bb545e0d860e259",
+    "url": "/forntendevs/static/js/4.1c244af8.chunk.js"
   },
   {
-    "revision": "a17d2d51ccfc266514b6",
-    "url": "/forntendevs/static/js/main.9b6b7df9.chunk.js"
+    "revision": "cf0b627a4c743fff5190",
+    "url": "/forntendevs/static/js/main.3862af48.chunk.js"
   },
   {
-    "revision": "6e903f21d524110774a2",
-    "url": "/forntendevs/static/js/runtime~main.efdd44f1.js"
+    "revision": "0d66dbbcba2d226b2f87",
+    "url": "/forntendevs/static/js/runtime~main.52efbbf1.js"
   },
   {
     "revision": "630c3d9321f7e240bb29e0cb912930b1",
