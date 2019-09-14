@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/forntendevs/static/css/main.ba7f617d.chunk.css",
+    "main.js": "/forntendevs/static/js/main.1e77bd34.chunk.js",
+    "main.js.map": "/forntendevs/static/js/main.1e77bd34.chunk.js.map",
+    "runtime~main.js": "/forntendevs/static/js/runtime~main.efdd44f1.js",
+    "runtime~main.js.map": "/forntendevs/static/js/runtime~main.efdd44f1.js.map",
+    "static/js/2.81feda70.chunk.js": "/forntendevs/static/js/2.81feda70.chunk.js",
+    "static/js/2.81feda70.chunk.js.map": "/forntendevs/static/js/2.81feda70.chunk.js.map",
+    "static/css/3.7893d4f7.chunk.css": "/forntendevs/static/css/3.7893d4f7.chunk.css",
+    "static/js/3.b60b8676.chunk.js": "/forntendevs/static/js/3.b60b8676.chunk.js",
+    "static/js/3.b60b8676.chunk.js.map": "/forntendevs/static/js/3.b60b8676.chunk.js.map",
+    "static/css/4.bb6d6209.chunk.css": "/forntendevs/static/css/4.bb6d6209.chunk.css",
+    "static/js/4.15e7b266.chunk.js": "/forntendevs/static/js/4.15e7b266.chunk.js",
+    "static/js/4.15e7b266.chunk.js.map": "/forntendevs/static/js/4.15e7b266.chunk.js.map",
+    "index.html": "/forntendevs/index.html",
+    "precache-manifest.52a486bc7badb7ddc9b24ba9a3745839.js": "/forntendevs/precache-manifest.52a486bc7badb7ddc9b24ba9a3745839.js",
+    "service-worker.js": "/forntendevs/service-worker.js",
+    "static/css/3.7893d4f7.chunk.css.map": "/forntendevs/static/css/3.7893d4f7.chunk.css.map",
+    "static/css/4.bb6d6209.chunk.css.map": "/forntendevs/static/css/4.bb6d6209.chunk.css.map",
+    "static/css/main.ba7f617d.chunk.css.map": "/forntendevs/static/css/main.ba7f617d.chunk.css.map",
+    "static/media/loading.gif": "/forntendevs/static/media/loading.630c3d93.gif",
+    "static/media/user.png": "/forntendevs/static/media/user.aa960f01.png"
+  }
+}
