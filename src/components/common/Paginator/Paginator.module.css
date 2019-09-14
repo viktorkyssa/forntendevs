@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pagination span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    color: #333333;
+    cursor: pointer;
+    transition: all .45s;
+}
+
+.pagination span.selectedPage {
+    font-weight: bold;
+    cursor: default;
+    pointer-events: none;
+    color: #fff;
+    background-color: #3b5998;
+}
+
+.pagination span:hover {
+    transform: scale(1.1);
+    color: #000000;
+}
+
+.pagination span:active {
+    transform: scale(1);
+    color: #333333;
+}

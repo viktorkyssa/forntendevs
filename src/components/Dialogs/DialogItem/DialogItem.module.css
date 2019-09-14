@@ -1,0 +1,7 @@
+.dialog {
+
+}
+
+.dialog.active {
+  color: rgb(18, 126, 0);
+}

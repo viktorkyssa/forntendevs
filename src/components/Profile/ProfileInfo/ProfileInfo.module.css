@@ -1,0 +1,38 @@
+.main_img {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+}
+
+.main_img img {width: 100%;}
+
+.avatar_content {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	padding: 15px;
+}
+
+.logo {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.logo img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.about {
+	margin-left: 15px;
+}
+
+.about p {
+	color: #333;
+}

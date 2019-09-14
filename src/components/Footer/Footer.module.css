@@ -1,0 +1,9 @@
+.footer {
+  padding: 10px 20px;
+  background: #3b5998;
+  grid-area: footer;
+}
+
+p {
+  color: #fff;
+}

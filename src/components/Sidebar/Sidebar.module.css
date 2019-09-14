@@ -1,0 +1,64 @@
+.sidebar {
+  padding: 10px 25px 10px 10px;
+  grid-area: sidebar;
+  background-color: #3b5998;
+}
+
+.nav {
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 15px;
+}
+
+.item a {
+  color: #fff;
+  text-decoration: none;
+  transition: all .4s;
+}
+
+.item a:hover {
+  opacity: 0.7;
+}
+.item a:active {
+  opacity: 1;
+}
+
+.item a.active {
+  color: gold;
+}
+
+.friends {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.friends li {
+  width: 70px;
+  cursor: pointer;
+}
+
+.friends figure {
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all .45s;
+}
+
+.friends li:hover figure {
+  box-shadow: 0 0 20px 7px rgba(0,0,0,0.5);   
+}
+
+.friends img {
+  min-width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,54 @@
+body, html {
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+p {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "sidebar content"
+  "footer footer";
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.app-wrapper__content {
+  grid-area: content;
+  background-color: rgb(222, 222, 200);
+}
+
+.btn {
+  height: 35px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: #336298;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: all .45s;
+}
+
+.btn:hover {
+  background-color: #244498;
+}
+
+.btn:active {
+  background-color: #336298;
+}

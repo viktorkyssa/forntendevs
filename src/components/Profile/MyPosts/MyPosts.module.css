@@ -1,0 +1,15 @@
+.my_posts {
+  padding: 10px 20px;
+}
+
+.new_post {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.new_post textarea {
+  margin-bottom: 10px;
+  height: 50px;
+}
+

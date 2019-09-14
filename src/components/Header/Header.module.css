@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  grid-area: header;
+  background-color: #3b5998;
+}
+
+.header img {
+  height: 100%;
+}
+
+.loginBlock {
+	float: right;
+	color: #fff;
+}
+
+.loginBlock a {
+	color: #fff;
+    text-decoration: none;
+    transition: all .45s;
+}
+
+.loginBlock a:hover {
+    text-shadow: 0 0 2px rgb(255,255,255,255);
+}
+.loginBlock a:active {
+    text-shadow: none;
+}
+
+.btn_logout {
+    margin-left: 15px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all .45s;
+    outline: none;
+}
+
+.btn_logout:hover {
+    box-shadow: 0 0 10px rgba(255,255,255, 0.3);
+}
+.btn_logout:active {
+    box-shadow: none;
+}
+
