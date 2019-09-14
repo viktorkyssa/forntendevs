@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/forntendevs/static/css/main.ba7f617d.chunk.css",
-    "main.js": "/forntendevs/static/js/main.3862af48.chunk.js",
-    "main.js.map": "/forntendevs/static/js/main.3862af48.chunk.js.map",
+    "main.js": "/forntendevs/static/js/main.160084c8.chunk.js",
+    "main.js.map": "/forntendevs/static/js/main.160084c8.chunk.js.map",
     "runtime~main.js": "/forntendevs/static/js/runtime~main.52efbbf1.js",
     "runtime~main.js.map": "/forntendevs/static/js/runtime~main.52efbbf1.js.map",
     "static/js/2.ead3bf83.chunk.js": "/forntendevs/static/js/2.ead3bf83.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/4.1c244af8.chunk.js": "/forntendevs/static/js/4.1c244af8.chunk.js",
     "static/js/4.1c244af8.chunk.js.map": "/forntendevs/static/js/4.1c244af8.chunk.js.map",
     "index.html": "/forntendevs/index.html",
-    "precache-manifest.342003611b7eae8a508287e8367c7f6c.js": "/forntendevs/precache-manifest.342003611b7eae8a508287e8367c7f6c.js",
+    "precache-manifest.f2ee4d9cff5b7dd3b1d155cb077df34a.js": "/forntendevs/precache-manifest.f2ee4d9cff5b7dd3b1d155cb077df34a.js",
     "service-worker.js": "/forntendevs/service-worker.js",
     "static/css/3.7893d4f7.chunk.css.map": "/forntendevs/static/css/3.7893d4f7.chunk.css.map",
     "static/css/4.bb6d6209.chunk.css.map": "/forntendevs/static/css/4.bb6d6209.chunk.css.map",

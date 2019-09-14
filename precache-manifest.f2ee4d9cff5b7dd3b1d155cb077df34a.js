@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b63eb11e02b8d7120aae47082417e4ec",
+    "revision": "a30f18347589661e62619c8fc574d39b",
     "url": "/forntendevs/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/forntendevs/static/css/4.bb6d6209.chunk.css"
   },
   {
-    "revision": "cf0b627a4c743fff5190",
+    "revision": "b9a5c399fcab3be5e139",
     "url": "/forntendevs/static/css/main.ba7f617d.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/forntendevs/static/js/4.1c244af8.chunk.js"
   },
   {
-    "revision": "cf0b627a4c743fff5190",
-    "url": "/forntendevs/static/js/main.3862af48.chunk.js"
+    "revision": "b9a5c399fcab3be5e139",
+    "url": "/forntendevs/static/js/main.160084c8.chunk.js"
   },
   {
     "revision": "0d66dbbcba2d226b2f87",
