@@ -16,6 +16,7 @@ import Preloader from "./components/common/Preloader/Preloader"
 import {compose} from "redux"
 import store from "./redux/redux-store"
 import {withSuspense} from "./hoc/withSuspense"
+import * as axios from 'axios'
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
