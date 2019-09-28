@@ -78,3 +78,14 @@
 	cursor: pointer;
 }
 
+.contacts ul ul {
+	margin-left: 20px;
+}
+
+.editProfile {
+	width: max-content;
+}
+
+.editProfile li {
+	display: flex;
+}

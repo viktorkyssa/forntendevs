@@ -3,7 +3,7 @@ import Profile from './Profile'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {withRouter} from 'react-router-dom'
-import {getProfile, getStatus, savePhoto, updateStatus} from '../../redux/profile-reducer'
+import {getProfile, getStatus, savePhoto, saveProfile, updateStatus} from '../../redux/profile-reducer'
 
 class ProfileContainer extends React.Component  {
 
@@ -36,7 +36,8 @@ class ProfileContainer extends React.Component  {
 						status={this.props.status}
 						updateStatus={this.props.updateStatus}
 						isOwner={!this.props.match.params.userId}
-						savePhoto={this.props.savePhoto}/>
+						savePhoto={this.props.savePhoto}
+						saveProfile={this.props.saveProfile}/>
 	}
 }
 
@@ -49,5 +50,5 @@ let mapStateToProps = (state) => ({
 
 export default compose(
 	withRouter,
-	connect(mapStateToProps,{getProfile, getStatus, updateStatus, savePhoto})
+	connect(mapStateToProps,{getProfile, getStatus, updateStatus, savePhoto, saveProfile})
 )(ProfileContainer)
