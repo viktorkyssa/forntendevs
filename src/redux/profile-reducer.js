@@ -70,10 +70,14 @@ export const getStatus = (id) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-  const res = await profileAPI.updateStatus(status)
+  try {
+    const res = await profileAPI.updateStatus(status)
 
-  if(res.data.resultCode === 0) {
-    dispatch(setStatus(status))
+    if(res.data.resultCode === 0) {
+      dispatch(setStatus(status))
+    }
+  } catch(error) {
+
   }
 }
 

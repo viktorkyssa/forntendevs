@@ -33,3 +33,26 @@
     transform: scale(1);
     color: #333333;
 }
+
+.pageNum {
+
+}
+
+.pagination__arrow {
+    background: #3b5998;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 20px;
+    cursor: pointer;
+    outline: none;
+    transition: all .45s;
+}
+
+.pagination__arrow:hover {
+    opacity: 0.8;
+}
+
+.pagination__arrow:active {
+    opacity: 1;
+}

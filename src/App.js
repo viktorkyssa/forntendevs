@@ -8,7 +8,7 @@ import Settings from './components/Settings/Settings'
 import NotFound from './components/NotFound/NotFound'
 import LoginPage from './components/Login/Login'
 import UsersContainer from './components/Users/UsersContainer'
-import {HashRouter, Route, Switch, withRouter} from 'react-router-dom'
+import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom'
 import './App.css'
 import {connect, Provider} from "react-redux"
 import {initializeApp} from "./redux/app-reducer"
@@ -16,17 +16,26 @@ import Preloader from "./components/common/Preloader/Preloader"
 import {compose} from "redux"
 import store from "./redux/redux-store"
 import {withSuspense} from "./hoc/withSuspense"
-import * as axios from 'axios'
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
 class App extends Component {
-  componentDidMount() {
-    this.props.initializeApp()
+
+  catchAllUnhandledErrors = (reason, promise) => {
+    alert('some error')
   }
 
-  render() {
+  componentDidMount() {
+    this.props.initializeApp()
+      window.addEventListener('unhandlerejection', this.catchAllUnhandledErrors)
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener('unhandlerejection', this.catchAllUnhandledErrors)
+  }
+
+    render() {
     if(!this.props.initialized) {
       return <Preloader />
     }
@@ -37,6 +46,7 @@ class App extends Component {
           <SidebarContainer/>
           <div className="app-wrapper__content">
             <Switch>
+              <Route exact path='/' render={() => <Redirect to='/profile' />}/>
               <Route exact path='/profile/:userId?' render={withSuspense(ProfileContainer)}/>
               <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>
               <Route path='/news' component={News}/>
@@ -65,9 +75,9 @@ const SamuraiJSApp = (props) => {
     return (
         <Provider store={store}>
             {/*basename={process.env.PUBLIC_URL}*/}
-            <HashRouter >
+            <BrowserRouter>
                 <AppContainer />
-            </HashRouter>
+            </BrowserRouter>
         </Provider>
     )
 }

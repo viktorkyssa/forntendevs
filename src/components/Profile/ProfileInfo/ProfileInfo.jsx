@@ -4,6 +4,7 @@ import Preloader from '../../common/Preloader/Preloader'
 import ProfileStatus from "./ProfileStatus/ProfileStatus"
 import userPhoto from '../../../assets/img/user.png'
 import {ProfileDataFormReduxForm} from "./ProfileDataForm"
+import cn from 'classnames'
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
   let [editMode, setEditMode] = useState(false)
@@ -24,7 +25,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
   }
 
   return (
-    <div>
+    <div className={cn(classes.profileInfo)}>
       <div className={classes.avatar_content}>
         <div className={classes.avatar__logo_wrapper}>
             <div className={classes.logo}>
@@ -49,7 +50,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return(
         <div className={classes.contacts}>
             {isOwner && <button className={classes.editBtn} onClick={goToEditMode}>Edit</button>}
-            <ul>
+            <ul className={classes.contacts__list}>
                 <li><b>Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no' }</li>
                 {profile.lookingForAJob && <li><b>My proffesional skills: </b> {profile.lookingForAJobDescription}</li>}
                 <li><b>About me: </b> {profile.aboutMe}</li>
@@ -59,6 +60,6 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
     )
 }
 
-const Contact = ({contactTitle, contactValue}) => <li><b>{contactTitle}:</b>{contactValue}</li>
+const Contact = ({contactTitle, contactValue}) => <li><b>{contactTitle}:</b> {contactValue}</li>
 
 export default ProfileInfo

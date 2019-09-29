@@ -6,7 +6,7 @@ import {NavLink} from 'react-router-dom'
 let User = ({user, followingInProgress, unfollow, follow}) => {
 	return (
 		  <div className={styles.user}>
-			  <span>
+			  <div className={styles.user__photo}>
 				<div>
 				  <NavLink to={'/profile/'+user.id}>
 					<img src={user.photos.small != null ? user.photos.small : userPhoto}
@@ -14,22 +14,22 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
 				  </NavLink>
 				</div>
 				<div>
-				  {user.followed ? <button disabled={followingInProgress.some(id => id === user.id)}
+				  {user.followed ? <button className={styles.user__btn} disabled={followingInProgress.some(id => id === user.id)}
 										   onClick={() => {unfollow(user.id)}}>Unfollow</button> :
-					  <button disabled={followingInProgress.some(id => id === user.id)}
+					  <button className={styles.user__btn} disabled={followingInProgress.some(id => id === user.id)}
 							  onClick={() => {follow(user.id)}}>Follow</button> }
 				</div>
-		  	</span>
-		 	 <span>
-				<span>
-				  <div>{user.name}</div>
-				  <div>{user.status}</div>
-				</span>
+		  	</div>
+		 	 <div className={styles.user__info}>
+				<div>
+				  <p className={styles.user__name}>{user.name}</p>
+				  <p className={styles.user__status}>{user.status}</p>
+				</div>
 				<span>
 				  <div>{"user.location.city"}</div>
 				  <div>{"user.location.country"}</div>
 				</span>
-		 	 </span>
+		 	 </div>
 		  </div>
 	)
 }

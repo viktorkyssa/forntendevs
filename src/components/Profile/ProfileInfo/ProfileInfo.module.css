@@ -8,12 +8,7 @@
 .main_img img {width: 100%;}
 
 .avatar_content {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
-	align-items: center;
 	padding: 15px;
 }
 
@@ -78,14 +73,59 @@
 	cursor: pointer;
 }
 
+.contacts {
+	padding: 15px;
+}
+
 .contacts ul ul {
 	margin-left: 20px;
 }
 
 .editProfile {
-	width: max-content;
+	padding: 15px;
+}
+
+.editProfile__list {
+	margin-top: 10px;
+}
+
+.editProfile__list input {
+	margin-bottom: 0;
+	width: -webkit-fill-available;
+}
+
+.editProfile__list b {
+	display: block;
+	margin-bottom: 5px;
 }
 
 .editProfile li {
-	display: flex;
+	margin-bottom: 10px;
+}
+
+.editBtn {
+	background: darkblue;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	outline: none;
+	transition: all .45s;
+}
+
+.editBtn:hover {
+	box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+}
+
+.editBtn:active {
+	box-shadow: none;
+}
+
+.contacts__list {
+	margin-top: 10px;
+}
+
+.contacts__list li {
+	margin-bottom: 5px;
 }

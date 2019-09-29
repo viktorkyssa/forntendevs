@@ -1,3 +1,48 @@
 .userPhoto {
   width: 100px;
 }
+
+.usersPage {
+  padding: 15px;
+}
+
+.usersList {
+  margin-top: 15px;
+}
+
+.user {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.user__btn {
+  background: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+  transition: all .45s;
+}
+
+.user__btn:hover {
+  opacity: 0.8;
+}
+
+.user__btn:active {
+  opacity: 1;
+}
+
+.user__photo {
+  margin-right: 15px;
+}
+
+.user__name {
+  color: #000;
+  font-weight: bold;
+}
+
+.user__status {
+  color: #000;
+}

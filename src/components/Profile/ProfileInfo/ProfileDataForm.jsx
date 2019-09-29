@@ -9,7 +9,7 @@ const ProfileDataForm = ({profile, handleSubmit, error}) => {
         <form className={classes.editProfile} onSubmit={handleSubmit}>
             {<button className={classes.editBtn}>Save</button>}
             {error && <div className={classes.error}>{error}</div>}
-            <ul>
+            <ul className={classes.editProfile__list}>
                 <li><b>Full name: </b> <Field placeholder={"Full name"} name={"fullName"} component={Input} validate={[required]} /></li>
                 <li><b>Looking for a job: </b> <Field name='lookingForAJob' component={Input} type='checkbox' /> </li>
                 <li><b>My proffesional skills: </b> <Field placeholder='My Proffesionals skills' name='lookingForAJobDescription' component={Textarea} /></li>
