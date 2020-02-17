@@ -1,3 +1,9 @@
+type FriendType = {
+  id: number
+  name: string
+  img: string
+}
+
 let initialState = {
   friends: [
     {
@@ -15,11 +21,12 @@ let initialState = {
       name: 'Donald',
       img: 'https://images.axios.com/078ps5QcbNgqsgEI_QkV9hDW9PQ=/0x0:3900x2194/1920x1080/2018/08/25/1535212462538.jpg'
     },
-  ]
+  ] as Array<FriendType>
 }
 
-const sidebarReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
 
+const sidebarReducer = (state = initialState, action: any): InitialStateType => {
   return state
 }
 
