@@ -1,14 +1,46 @@
 import React from 'react'
-import Profile from './Profile'
-import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {withRouter} from 'react-router-dom'
-import {getProfile, getStatus, savePhoto, saveProfile, updateStatus} from '../../redux/profile-reducer'
+import {connect} from 'react-redux'
 
-class ProfileContainer extends React.Component  {
+import {getProfile, getStatus, savePhoto, saveProfile, updateStatus} from '../../redux/profile-reducer'
+import {AppStateType} from "../../redux/redux-store"
+import {ProfileType} from "../../types/types"
+
+import Profile from './Profile'
+
+type MapStatePropsType = {
+	authorizedUserId: number | null
+	profile: ProfileType | null
+	status: string
+	isAuth: boolean
+}
+
+type MapDispatchPropsType = {
+	updateStatus: (status: string) => void
+	getProfile: (userId: number | null) => void
+	getStatus: (userId: number | null) => void
+	savePhoto: () => void
+	saveProfile: () => void
+}
+
+type OwnPropsType = {
+	match: {
+		params: {
+			userId: number
+		}
+	}
+	history: {
+		push: (url: string) => void
+	}
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+
+class ProfileContainer extends React.Component<PropsType>  {
 
 	refreshProfile() {
-		let userId = this.props.match.params.userId
+		let userId: number | null = this.props.match.params.userId
 		if(!userId) {
 			userId = this.props.authorizedUserId
 			if(!userId) {
@@ -24,7 +56,7 @@ class ProfileContainer extends React.Component  {
 		this.refreshProfile()
 	}
 
-	componentDidUpdate(prevProps, prevState, snapshot) {
+	componentDidUpdate(prevProps: PropsType) {
 		if(this.props.match.params.userId !== prevProps.match.params.userId) {
 			this.refreshProfile()
 		}
@@ -41,7 +73,7 @@ class ProfileContainer extends React.Component  {
 	}
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 	profile: state.profilePage.profile,
 	status: state.profilePage.status,
 	authorizedUserId: state.auth.userId,
