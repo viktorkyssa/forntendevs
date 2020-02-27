@@ -1,16 +1,19 @@
 import React from 'react'
-import classes from './Dialogs.module.css'
+import {Field, reduxForm} from "redux-form"
+
+import {Textarea} from "../common/FormsControls/FormsControls"
+import {maxLengthCreator, required} from "../../utils/validators/validators"
+
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
+
+import classes from './Dialogs.module.css'
 
 const Dialogs = (props) => {
   let state = props.messagesPage
 
-  let dialogsTemplate = state.dialogs.map(dialog => <DialogItem key={dialog.id} dialogsData={dialog} />)
-  let messagesTemplate = state.messages.map(message => <Message key={message.id} text={message.message} />)
+  let dialogsTemplate = state.dialogs.map(dialog => <DialogItem key={dialog.id} {...dialog} />)
+  let messagesTemplate = state.messages.map(message => <Message key={message.id} {...message} />)
 
   const addNewMessage = (values) => {
       props.sendMessage(values.newMessageBody)

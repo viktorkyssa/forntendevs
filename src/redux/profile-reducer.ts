@@ -48,7 +48,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
         case SET_STATUS:
             return {...state, status: action.status}
         case DELETE_POST:
-            return {...state, posts: state.posts.filter(p => p.id != action.postId)}
+            return {...state, posts: state.posts.filter(p => p.id !== action.postId)}
         case SAVE_PHOTO_SUCCESS:
             return {...state, profile: {...state.profile, photos: action.photos} as ProfileType}
         default:

@@ -1,13 +1,12 @@
 import React from 'react'
-import classes from './Friend.module.css'
 
-const Friend = (props) => {
+const Friend = ({friendInfo: img, name}) => {
   return(
     <li>
       <figure>
-        <img src={props.friendInfo.img} alt="Img"/>
+        <img src={img} alt="Img"/>
       </figure>
-      <p>{props.friendInfo.name}</p>
+      <p>{name}</p>
     </li>
   )
 }

@@ -1,26 +1,18 @@
+import {DialogType, MessageType} from "../types/types"
+
 const SEND_MESSAGE = 'messages/SEND-MESSAGE'
-
-type dialogType = {
-  id: number
-  name: string
-}
-
-type messageType = {
-  id: number
-  message: string
-}
 
 let initialState = {
   dialogs: [
     { id: 1, name: 'Alex' },
     { id: 2, name: 'Jon' },
     { id: 3, name: 'Steve' }
-  ] as Array<dialogType>,
+  ] as Array<DialogType>,
   messages: [
     {id: 1, message: "Hi"},
     {id: 2, message: "How are you?"},
     {id: 3, message: "How was your day today?"},
-  ] as Array<messageType>
+  ] as Array<MessageType>
 }
 
 export type InitialStateType = typeof initialState

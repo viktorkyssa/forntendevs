@@ -1,9 +1,8 @@
 import React from 'react'
-import classes from './Sidebar.module.css'
-import {NavLink} from 'react-router-dom'
+import {connect} from 'react-redux'
+
 import Friend from './Friend/Friend'
 import Sidebar from './Sidebar'
-import {connect} from 'react-redux'
 
 let mapStateToProps = (state) => {
   let friendsTemplate = state.sidebar.friends.map(friend => <Friend key={friend.id} friendInfo={friend} />)
