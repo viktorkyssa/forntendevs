@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import {ProfileType} from "../types/types"
+import {ProfileType, UserType} from "../types/types"
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -10,9 +10,15 @@ const instance = axios.create({
     }
 })
 
+type GetUsersResponseType = {
+	items: Array<UserType>
+	totalCount: number
+	error: string
+}
+
 export const usersAPI = {
-    getUsers(currentPage = 1, pageSize = 10) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(res => res.data)
+    getUsers(currentPage: number = 1, pageSize: number = 10) {
+        return instance.get<GetUsersResponseType>(`users?page=${currentPage}&count=${pageSize}`).then(res => res.data)
     },
     unfollow(id: number) {
         return instance.delete(`follow/${id}`).then(res => res.data)
