@@ -1,7 +1,7 @@
 import {stopSubmit} from "redux-form"
 import {ThunkAction} from "redux-thunk"
 
-import {authAPI, securityAPI} from '../api/api'
+import {authAPI, ResultCodeForCaptcha, ResultCodesEnum, securityAPI} from '../api/api'
 import {AppStateType} from "./redux-store"
 
 const SET_USER_DATA = 'auth/SET_USER_DATA'
@@ -67,19 +67,19 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessAc
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
-	let res = await authAPI.autentificate()
-	if(res.data.resultCode === 0) {
-		let {id, login, email} = res.data.data
+	let authData = await authAPI.autentificate()
+	if(authData.resultCode === ResultCodesEnum.Success) {
+		let {id, login, email} = authData.data
 		dispatch(setAuthUserData(id, email, login, true))
 	}
 }
 
 export const login = (email: string, password: string, rememberMe: boolean, captcha: string) => async (dispatch: any) => {
 	let data = await authAPI.login(email, password, rememberMe, captcha)
-	if(data.resultCode === 0) {
+	if(data.resultCode === ResultCodesEnum.Success) {
 		dispatch(getAuthUserData())
 	} else {
-		if(data.resultCode === 10) {
+		if(data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired) {
 			dispatch(getCaptchaUrl())
 		}
 		let message = data.messages.length > 0 ? data.messages[0] : 'Login or email is invalid'
