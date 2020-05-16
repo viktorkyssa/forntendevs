@@ -1,7 +1,7 @@
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 
-import {InitialStateType, sendMessage} from '../../redux/messages-reducer'
+import {InitialStateType, actions} from '../../redux/messages-reducer'
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import {AppStateType} from "../../redux/redux-store"
 
@@ -20,5 +20,5 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => ({messagesPage
 export default compose(
 	withAuthRedirect,
 	connect<MapStatePropsType, MapDispatchPropsType, unknown, AppStateType>
-	(mapStateToProps,{sendMessage})
+	(mapStateToProps,{sendMessage: actions.sendMessage})
 )(Dialogs)
