@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import {create} from 'react-test-renderer'
 import Paginator from "./Paginator"
 

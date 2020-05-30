@@ -4,6 +4,12 @@ export type PostType = {
     likes: number
 }
 
+export type FriendType = {
+    id: number
+    name: string
+    img: string
+}
+
 export type ContactsType = {
     github: string
     vk: string
@@ -27,6 +33,7 @@ export type ProfileType = {
     fullName: string
     contacts: ContactsType
     photos: PhotosType
+    aboutMe: string
 }
 
 export type UserType = {
@@ -46,3 +53,5 @@ export type MessageType = {
     id: number
     message: string
 }
+
+export type GetStringKeys<T> = Extract<keyof T, string>

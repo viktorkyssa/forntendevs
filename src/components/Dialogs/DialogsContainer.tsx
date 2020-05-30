@@ -1,3 +1,4 @@
+import React from 'react'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 
@@ -21,4 +22,4 @@ export default compose(
 	withAuthRedirect,
 	connect<MapStatePropsType, MapDispatchPropsType, unknown, AppStateType>
 	(mapStateToProps,{sendMessage: actions.sendMessage})
-)(Dialogs)
+)(Dialogs) as React.ComponentType

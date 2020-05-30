@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Friend = ({friendInfo: img, name}) => {
+type PropsType = {
+    img: string
+    name: string
+}
+
+const Friend: React.FC<PropsType> = ({img, name}) => {
   return(
     <li>
       <figure>

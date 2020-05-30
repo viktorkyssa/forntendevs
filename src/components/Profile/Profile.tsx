@@ -10,8 +10,8 @@ type PropsType = {
     status: string
     updateStatus: (status: string) => void
     isOwner: boolean
-    savePhoto: () => void
-    saveProfile: () => void
+    savePhoto: (file: File) => void
+    saveProfile: (formData: ProfileType) => Promise<any>
 }
 
 const Profile: FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
