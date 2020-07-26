@@ -9,22 +9,6 @@ import {ProfileType} from "../../types/types"
 
 import Profile from './Profile'
 
-type MapStatePropsType = ReturnType<typeof mapStateToProps>
-
-type MapDispatchPropsType = {
-	updateStatus: (status: string) => void
-	getProfile: (userId: number) => void
-	getStatus: (userId: number) => void
-	savePhoto: (file: File) => void
-	saveProfile: (formData: ProfileType) => Promise<any>
-}
-
-type PathParamsType = {
-	userId: string
-}
-
-type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>
-
 class ProfileContainer extends React.Component<PropsType>  {
 
 	refreshProfile() {
@@ -73,3 +57,19 @@ export default compose(
 	withRouter,
 	connect(mapStateToProps,{getProfile, getStatus, updateStatus, savePhoto, saveProfile})
 )(ProfileContainer) as React.ComponentType
+
+type MapStatePropsType = ReturnType<typeof mapStateToProps>
+
+type MapDispatchPropsType = {
+	updateStatus: (status: string) => void
+	getProfile: (userId: number) => void
+	getStatus: (userId: number) => void
+	savePhoto: (file: File) => void
+	saveProfile: (formData: ProfileType) => Promise<any>
+}
+
+type PathParamsType = {
+	userId: string
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>

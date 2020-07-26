@@ -2,7 +2,7 @@ import React from 'react'
 import {Field, InjectedFormProps, reduxForm} from "redux-form"
 
 import {maxLengthCreator, required} from "../../../utils/validators/validators"
-import {GetStringKeys, PostType} from "../../../types/types"
+import {PostType} from "../../../types/types"
 
 import Post from './Post/Post'
 import {Textarea} from "../../common/FormsControls/FormsControls"

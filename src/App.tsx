@@ -20,11 +20,6 @@ import {withSuspense} from "./hoc/withSuspense"
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
-type MapPropsType = ReturnType<typeof mapStateToProps>
-type DispatchPropsType = {
-    initializeApp: () => void
-}
-
 const SuspendedDialogs = withSuspense(DialogsContainer);
 const SuspendedProfile = withSuspense(ProfileContainer);
 
@@ -91,3 +86,8 @@ const SamuraiJSApp: React.FC = () => {
 }
 
 export default SamuraiJSApp
+
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initializeApp: () => void
+}
