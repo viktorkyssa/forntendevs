@@ -23,7 +23,7 @@ type MapStatePropsType = {
 }
 
 type MapDispatchPropsType = {
-    requestUsers: (currentPage: number, pageSize: number) => void
+    requestUsers: (currentPage: number, pageSize: number, term: string) => void
     follow: (id: number) => void
     unfollow: (id: number) => void
 }
@@ -38,12 +38,16 @@ class UsersContainer extends React.Component<PropsType> {
 
   componentDidMount() {
       let {currentPage, pageSize} = this.props
-      this.props.requestUsers(currentPage, pageSize)
+      this.props.requestUsers(currentPage, pageSize, "")
   }
 
   onPageChanged = (pageNumber: number) => {
       let {pageSize} = this.props
-      this.props.requestUsers(pageNumber, pageSize)
+      this.props.requestUsers(pageNumber, pageSize, "")
+  }
+
+  onFilterChanged = () => {
+
   }
 
   render() {
