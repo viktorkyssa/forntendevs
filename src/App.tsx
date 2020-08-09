@@ -6,8 +6,8 @@ import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import NotFound from './components/NotFound/NotFound'
-import LoginPage from './components/Login/Login'
-import UsersContainer from './components/Users/UsersContainer'
+import {LoginPage} from './components/Login/LoginPage'
+import {UsersPage} from './components/Users/UsersContainer'
 import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom'
 import './App.css'
 import {connect, Provider} from "react-redux"
@@ -55,8 +55,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
               <Route path='/news' component={News}/>
               <Route path='/music' component={Music}/>
               <Route path='/settings' component={Settings}/>
-              <Route path='/users' render={() => <UsersContainer pageTitle={"Samurai"} />}/>
-              <Route path='/login' render={() => <LoginPage/>}/>
+              <Route path='/users' render={() => <UsersPage pageTitle={"Samurai"} />}/>
+              <Route path='/login' render={() => <LoginPage />}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

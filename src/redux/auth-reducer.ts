@@ -52,7 +52,7 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
 		if(data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
 			dispatch(getCaptchaUrl())
 		}
-		let message = data.messages.length > 0 ? data.messages[0] : 'Login or email is invalid'
+		let message = data.messages.length > 0 ? data.messages[0] : 'LoginPage or email is invalid'
 		dispatch(stopSubmit('login',{_error: message}))
 	}
 }

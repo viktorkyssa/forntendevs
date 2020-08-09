@@ -76,6 +76,7 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
 }
 
 /* Action Creators */
+
 export const actions = {
     followSuccess: (userId: number) => ({type: FOLLOW, userId} as const),
     unfollowSuccess: (userId: number) => ({type: UNFOLLOW, userId} as const),
