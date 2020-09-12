@@ -1,5 +1,5 @@
 import React from 'react'
-import {Field, reduxForm, InjectedFormProps} from "redux-form"
+import {Field, InjectedFormProps, reduxForm} from "redux-form"
 import {Redirect} from "react-router-dom"
 
 import {Input} from "../common/FormsControls/FormsControls"
