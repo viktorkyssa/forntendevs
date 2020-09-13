@@ -1,5 +1,7 @@
 import React, {FC, useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux"
+import {useHistory} from "react-router"
+import * as queryString from "querystring"
 
 import {FilterType, requestUsers, follow, unfollow} from "../../redux/users-reducer"
 import {
@@ -21,6 +23,8 @@ type PropsType = {
 
 }
 
+type QueryParamsType = { term?: string; page?: string; friend?: string }
+
 export const Users: FC<PropsType> = props => {
 	const totalUsersCount = useSelector(getTotalUsersCount)
 	const currentPage = useSelector(getCurrentPage)
@@ -30,6 +34,7 @@ export const Users: FC<PropsType> = props => {
     const followingInProgress = useSelector(getFollowingInProgress)
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
 	const onPageChanged = (pageNumber: number) => {
 	    dispatch(requestUsers(pageNumber, pageSize, filter))
@@ -48,8 +53,29 @@ export const Users: FC<PropsType> = props => {
     }
 
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, filter))
+        const parsed = queryString.parse(history.location.search.substr(1)) as QueryParamsType
+        let actualPage = currentPage
+        let actualFilter = filter
+
+        if(!!parsed.page) actualPage = Number(parsed.page)
+        if(!!parsed.term) actualFilter = {...actualFilter, term: parsed.term as string}
+        if(!!parsed.friend) actualFilter = {...actualFilter, friend: parsed.friend === "null" ? null : parsed.friend === "true" ? true : false}
+
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
     }, [])
+
+    useEffect(() => {
+        const query: QueryParamsType = {}
+
+        if(!!filter.term) query.term = filter.term
+        if(filter.friend !== null) query.friend = String(filter.friend)
+        if(currentPage !== 1) query.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage])
 
     return (
 		<div className={styles.usersPage}>
