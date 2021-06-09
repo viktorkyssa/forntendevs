@@ -77,17 +77,25 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
 
 /* Action Creators */
 export const actions = {
+    // @ts-ignore
     followSuccess: (userId: number) => ({type: FOLLOW, userId} as const),
+    // @ts-ignore
     unfollowSuccess: (userId: number) => ({type: UNFOLLOW, userId} as const),
+    // @ts-ignore
     setUsers: (users: Array<UserType>) => ({type: SET_USERS, users} as const),
+    // @ts-ignore
     setCurrentPage: (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage} as const),
+    // @ts-ignore
     setFilter: (filter: FilterType) => ({type: SET_FILTER, payload: {filter}} as const),
+    // @ts-ignore
     setTotalUsersCount: (totalCount: number) => ({type: SET_TOTAL_COUNT, totalCount} as const),
+    // @ts-ignore
     toggleIsFetching: (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, isFetching} as const),
     toggleFollowingProgress: (isFetching: boolean, userId: number) => ({
         type: TOGGLE_IS_FOLLOWING_PROGRESS,
         isFetching,
         userId
+        // @ts-ignore
     } as const)
 }
 

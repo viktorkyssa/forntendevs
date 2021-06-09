@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {FC, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
+import {useHistory} from 'react-router-dom'
+import * as queryString from "querystring"
 
 import {follow, unfollow, requestUsers, FilterType} from '../../redux/users-reducer'
 import {
@@ -34,40 +36,66 @@ type OwnPropsType = {
 }
 
 type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+type QueryParamsType = { term?: string; page?: string; friend?: string }
 
-class UsersContainer extends React.Component<PropsType> {
+const UsersContainer: FC<PropsType> = ({
+                                           currentPage, pageSize, filter, requestUsers,
+                                           pageTitle, isFetching, totalUsersCount, users,
+                                           followingInProgress
+                                       }) => {
+    const history = useHistory()
 
-  componentDidMount() {
-      let {currentPage, pageSize, filter} = this.props
-      this.props.requestUsers(currentPage, pageSize, filter)
-  }
+    useEffect(() => {
+        const parsedSearch = queryString.parse(history.location.search.substr(1)) as QueryParamsType
+        const actualPage = !!parsedSearch.page ? Number(parsedSearch.page) : currentPage
+        let actualFilter = filter
 
-  onPageChanged = (pageNumber: number) => {
-      let {pageSize, filter} = this.props
-      this.props.requestUsers(pageNumber, pageSize, filter)
-  }
+        if (!!parsedSearch.term) actualFilter = {...actualFilter, term: parsedSearch.term as string}
+        if (!!parsedSearch.friend) {
+            actualFilter = {
+                ...actualFilter,
+                friend: parsedSearch.friend === 'null' ? null : parsedSearch.friend === 'true'
+            }
+        }
 
-  onFilterChanged = (filter: FilterType) => {
-      let {pageSize} = this.props
-      this.props.requestUsers(1, pageSize, filter)
-  }
+        requestUsers(actualPage, pageSize, actualFilter)
+    }, [currentPage, pageSize, filter])
 
-  render() {
+    useEffect(() => {
+        const query: QueryParamsType = {}
+
+        if (!!filter.term) query.term = filter.term
+        if (filter.friend !== null) query.friend = String(filter.friend)
+        if (currentPage !== 1) query.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage])
+
+    const onPageChanged = (pageNumber: number) => {
+        requestUsers(pageNumber, pageSize, filter)
+    }
+
+    const onFilterChanged = (filter: FilterType) => {
+        requestUsers(1, pageSize, filter)
+    }
+
     return <>
-        <h2>{this.props.pageTitle}</h2>
-      {this.props.isFetching ? <Preloader /> : null}
-      <Users totalUsersCount={this.props.totalUsersCount} 
-        pageSize={this.props.pageSize}
-        currentPage={this.props.currentPage}
-        onPageChanged={this.onPageChanged}
-        onFilterChanged={this.onFilterChanged}
-        users={this.props.users}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-        followingInProgress={this.props.followingInProgress}
-      />
+        <h2>{pageTitle}</h2>
+        {isFetching ? <Preloader/> : null}
+        <Users totalUsersCount={totalUsersCount}
+               pageSize={pageSize}
+               currentPage={currentPage}
+               onPageChanged={onPageChanged}
+               onFilterChanged={onFilterChanged}
+               users={users}
+               follow={follow}
+               unfollow={unfollow}
+               followingInProgress={followingInProgress}
+        />
     </>
-  }
 }
 
 let mapStateToProps = (state: AppStateType): MapStatePropsType => ({
@@ -81,5 +109,6 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 })
 
 export default compose(
-  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps,{follow,unfollow,requestUsers})
+    connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps,
+        {follow, unfollow, requestUsers})
 )(UsersContainer)

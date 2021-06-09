@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import 'antd/dist/antd.css'
 import HeaderContainer from './components/Header/HeaderContainer'
 import Footer from './components/Footer/Footer'
 import SidebarContainer from './components/Sidebar/SidebarContainer'
@@ -46,7 +47,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
     return (
         <div className="app-wrapper">
           <HeaderContainer/>
-          <SidebarContainer/>
+          {/*<SidebarContainer/>*/}
           <div className="app-wrapper__content">
             <Switch>
               <Route exact path='/' render={() => <Redirect to='/profile' />}/>

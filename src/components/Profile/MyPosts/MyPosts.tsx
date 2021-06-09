@@ -49,6 +49,7 @@ const PostForm: React.FC<InjectedFormProps<FormPostValuesType, PostFormType> & P
     )
 }
 
+// @ts-ignore
 const PostFormRedux = reduxForm({form: "postForm"})(PostForm)
 
 export default MyPosts

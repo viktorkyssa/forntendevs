@@ -15,6 +15,8 @@ class ProfileContainer extends React.Component<PropsType>  {
 		let userId: number | null = +this.props.match.params.userId
 		if(!userId) {
 			userId = this.props.authorizedUserId
+			// @ts-ignore
+			this.props.getProfile(userId)
 			if(!userId) {
 				// todo: maybe replace push with Redirect??
 				this.props.history.push('/login')

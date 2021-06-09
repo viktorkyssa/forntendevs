@@ -55,16 +55,22 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 
 /* Action Creators */
 export const actions = {
+    // @ts-ignore
     addPost: (newPostText: string) => ({type: ADD_POST, newPostText} as const),
+    // @ts-ignore
     setUserProfile: (profile: ProfileType) => ({type: SET_USER_PROFILE, profile} as const),
+    // @ts-ignore
     setStatus: (status: string) => ({type: SET_STATUS, status} as const),
+    // @ts-ignore
     deletePost: (postId: number) => ({type: DELETE_POST, postId} as const),
+    // @ts-ignore
     savePhotoSuccess: (photos: PhotosType) => ({type: SAVE_PHOTO_SUCCESS, photos} as const)
 }
 
 /* Thunks */
 export const getProfile = (userId: number): ThunkType => async (dispatch) => {
-    const data = await profileAPI.getProfile(userId).then(res => res.data)
+    const data = await profileAPI.getProfile(userId).then(res => res)
+    //@ts-ignore
     dispatch(actions.setUserProfile(data))
 }
 
