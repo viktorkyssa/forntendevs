@@ -23,7 +23,7 @@
     "redux-form": "^8.2.4",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "typescript": "3.2.1"
+    "typescript": "3.9.2"
   },
   "scripts": {
     "start": "react-scripts start",
