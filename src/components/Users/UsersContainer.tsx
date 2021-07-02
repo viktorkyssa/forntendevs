@@ -58,7 +58,7 @@ const UsersContainer: FC<PropsType> = ({
             }
         }
 
-        requestUsers(actualPage, pageSize, actualFilter)
+        if (!users.length) requestUsers(actualPage, pageSize, actualFilter)
     }, [currentPage, pageSize, filter])
 
     useEffect(() => {

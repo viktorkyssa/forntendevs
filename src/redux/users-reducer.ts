@@ -59,11 +59,7 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
                 isFetching: action.isFetching
             }
         case SET_FILTER:
-            return {
-                ...state,
-                // @ts-ignore
-                filter: action.payload
-            }
+            return { ...state, ...action.payload }
         case TOGGLE_IS_FOLLOWING_PROGRESS:
             return {
                 ...state,
