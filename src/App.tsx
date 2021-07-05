@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import 'antd/dist/antd.css'
 import {Layout, Menu, Breadcrumb} from 'antd';
 import {UserOutlined, LaptopOutlined, NotificationOutlined} from '@ant-design/icons';
-import HeaderContainer from './components/Header/HeaderContainer'
 import Footer from './components/Footer/Footer'
-import SidebarContainer from './components/Sidebar/SidebarContainer'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
@@ -20,6 +18,7 @@ import {compose} from "redux"
 import store, {AppStateType} from "./redux/redux-store"
 import {withSuspense} from "./hoc/withSuspense"
 import classes from "./components/Sidebar/Sidebar.module.css";
+import AppHeader from "./components/Header/Header";
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
@@ -44,7 +43,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
     render() {
         const {SubMenu} = Menu
-        const {Header, Content, Footer, Sider} = Layout
+        const {Content, Footer, Sider} = Layout
 
         if (!this.props.initialized) {
             return <Preloader/>
@@ -52,12 +51,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
         return (
             <Layout>
-                <Header className="header">
-                    <div className="logo"/>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                        <Menu.Item key="1"><Link to="/developers">Developers</Link></Menu.Item>
-                    </Menu>
-                </Header>
+                <AppHeader/>
                 <Content style={{padding: '0 50px'}}>
                     <Breadcrumb style={{margin: '16px 0'}}>
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -100,20 +94,20 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                         </Sider>
                         <Content style={{padding: '0 24px', minHeight: 280}}>
                             <Switch>
-                                <Route exact path='/' render={() => <Redirect to='/profile' />}/>
-                                <Route exact path='/profile/:userId?' render={() => <SuspendedProfile />}/>
-                                <Route path='/dialogs' render={() => <SuspendedDialogs />}/>
+                                <Route exact path='/' render={() => <Redirect to='/profile'/>}/>
+                                <Route exact path='/profile/:userId?' render={() => <SuspendedProfile/>}/>
+                                <Route path='/dialogs' render={() => <SuspendedDialogs/>}/>
                                 <Route path='/news' component={News}/>
                                 <Route path='/music' component={Music}/>
                                 <Route path='/settings' component={Settings}/>
-                                <Route path='/developers' render={() => <UsersContainer pageTitle={"Samurai"} />}/>
+                                <Route path='/developers' render={() => <UsersContainer pageTitle={"Samurai"}/>}/>
                                 <Route path='/login' render={() => <LoginPage/>}/>
                                 <Route component={NotFound}/>
                             </Switch>
                         </Content>
                     </Layout>
                 </Content>
-                <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{textAlign: 'center'}}>Created by Viktor Kyssa {new Date().getFullYear()}</Footer>
             </Layout>
             /*<div className="app-wrapper">
               <HeaderContainer/>
