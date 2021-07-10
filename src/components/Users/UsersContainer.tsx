@@ -41,7 +41,7 @@ type QueryParamsType = { term?: string; page?: string; friend?: string }
 const UsersContainer: FC<PropsType> = ({
                                            currentPage, pageSize, filter, requestUsers,
                                            pageTitle, isFetching, totalUsersCount, users,
-                                           followingInProgress
+                                           followingInProgress, follow, unfollow
                                        }) => {
     const history = useHistory()
 
