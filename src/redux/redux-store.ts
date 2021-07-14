@@ -8,6 +8,7 @@ import sidebarReducer from './sidebar-reducer'
 import usersReducer from './users-reducer'
 import authReducer from './auth-reducer'
 import appReducer from "./app-reducer"
+import chatReducer from "./chat-reducer"
 
 let reducers = combineReducers({
   profilePage: profileReducer,
@@ -16,7 +17,8 @@ let reducers = combineReducers({
   usersPage: usersReducer,
   auth: authReducer,
   form: formReducer,
-  app: appReducer
+  app: appReducer,
+  chat: chatReducer
 })
 
 type RootReducerType = typeof reducers; // (globalstate: AppStateType) => AppStateType
